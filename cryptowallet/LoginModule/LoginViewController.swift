@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  cryptowallet
-//
-//  Created by Maxim on 29.09.2022.
-//
 
 import UIKit
 import SnapKit
@@ -17,8 +11,10 @@ class LoginViewController: BaseViewController {
     let passwordTextField = UITextField()
     let loginButton = UIButton()
     var stackView = UIStackView()
-
-    // MARK: - Ovveride metods
+    var loginViewModel: (LoginModuleProtocolIn & LoginModuleProtocolOut)?
+    
+    
+    // MARK: - Ovveride methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +22,20 @@ class LoginViewController: BaseViewController {
         view.backgroundColor = .white
         
         setTextFields()
-        setButton()
+        setLoginButton()
         setStackView()
         setLayout()
         
     }
 
     override func listenViewModel() {
-        
+        guard var loginViewModel = loginViewModel else {
+            return
+        }
+
+        loginViewModel.loginCheck = { [weak self] result in
+            self?.checkLogin(result: result)
+        }
     }
     
     override func setLayout() {
@@ -45,7 +47,7 @@ class LoginViewController: BaseViewController {
         }
     }
     
-    // MARK: - Metods
+    // MARK: - Methods
     
     func setTextFields() {
         loginTextField.borderStyle = .line
@@ -55,10 +57,11 @@ class LoginViewController: BaseViewController {
         passwordTextField.layer.cornerRadius = 10
     }
     
-    func setButton() {
+    func setLoginButton() {
         loginButton.backgroundColor = .systemTeal
         loginButton.layer.cornerRadius = 10
         loginButton.setTitle("Login", for: .normal)
+        loginButton.addTarget(self, action: #selector(tapLoginButton), for: .touchUpInside)
     }
     
     func setStackView() {
@@ -68,6 +71,18 @@ class LoginViewController: BaseViewController {
         stackView.distribution = .fill
         stackView.setCustomSpacing(20, after: loginTextField)
         stackView.setCustomSpacing(50, after: passwordTextField)
+    }
+    
+    func checkLogin (result: LoginError) {
+        if result == .noInfo {
+            view.backgroundColor = .green
+        } else {
+            view.backgroundColor = .white
+        }
+    }
+    
+    @objc func tapLoginButton () {
+        loginViewModel?.getData(login: loginTextField.text, password: passwordTextField.text)
     }
 }
 

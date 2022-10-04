@@ -11,10 +11,12 @@
 		9430FE3428E5DD5600ABDE53 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430FE3328E5DD5600ABDE53 /* LoginModel.swift */; };
 		9430FE3628E5DD9600ABDE53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430FE3528E5DD9600ABDE53 /* LoginViewModel.swift */; };
 		946AD2C528E5D1850001B2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946AD2C428E5D1850001B2DF /* AppDelegate.swift */; };
-		946AD2C728E5D1850001B2DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946AD2C628E5D1850001B2DF /* SceneDelegate.swift */; };
 		946AD2C928E5D1850001B2DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946AD2C828E5D1850001B2DF /* LoginViewController.swift */; };
 		946AD2CE28E5D1860001B2DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946AD2CD28E5D1860001B2DF /* Assets.xcassets */; };
 		946AD2D128E5D1860001B2DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946AD2CF28E5D1860001B2DF /* LaunchScreen.storyboard */; };
+		94DC3EE428EAE53F009F0E9F /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DC3EE328EAE53F009F0E9F /* AssemblyBuilder.swift */; };
+		94DC3EE628EB0E10009F0E9F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DC3EE528EB0E10009F0E9F /* Router.swift */; };
+		94DC3EE828EB0FC6009F0E9F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DC3EE728EB0FC6009F0E9F /* MainViewController.swift */; };
 		C8BEA61137FAEE61C996F192 /* Pods_cryptowallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FFDBE7BCF1D124D94E27DA /* Pods_cryptowallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,11 +27,13 @@
 		9430FE3528E5DD9600ABDE53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		946AD2C128E5D1850001B2DF /* cryptowallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cryptowallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		946AD2C428E5D1850001B2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		946AD2C628E5D1850001B2DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		946AD2C828E5D1850001B2DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		946AD2CD28E5D1860001B2DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946AD2D028E5D1860001B2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		946AD2D228E5D1860001B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94DC3EE328EAE53F009F0E9F /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
+		94DC3EE528EB0E10009F0E9F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		94DC3EE728EB0FC6009F0E9F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D22F2F4F5098451E77C42826 /* Pods-cryptowallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptowallet.debug.xcconfig"; path = "Target Support Files/Pods-cryptowallet/Pods-cryptowallet.debug.xcconfig"; sourceTree = "<group>"; };
 		F3FFDBE7BCF1D124D94E27DA /* Pods_cryptowallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cryptowallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -67,8 +71,9 @@
 			isa = PBXGroup;
 			children = (
 				946AD2C428E5D1850001B2DF /* AppDelegate.swift */,
-				946AD2C628E5D1850001B2DF /* SceneDelegate.swift */,
 				9430FE3028E5DC7F00ABDE53 /* BaseViewController.swift */,
+				94DC3EE328EAE53F009F0E9F /* AssemblyBuilder.swift */,
+				94DC3EE528EB0E10009F0E9F /* Router.swift */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -76,8 +81,8 @@
 		9430FE3728E5DD9E00ABDE53 /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
-				946AD2C828E5D1850001B2DF /* LoginViewController.swift */,
 				9430FE3328E5DD5600ABDE53 /* LoginModel.swift */,
+				946AD2C828E5D1850001B2DF /* LoginViewController.swift */,
 				9430FE3528E5DD9600ABDE53 /* LoginViewModel.swift */,
 			);
 			path = LoginModule;
@@ -105,12 +110,21 @@
 			isa = PBXGroup;
 			children = (
 				9430FE3228E5DCFB00ABDE53 /* PresentationLayer */,
-				946AD2CD28E5D1860001B2DF /* Assets.xcassets */,
 				9430FE3728E5DD9E00ABDE53 /* LoginModule */,
+				94DC3EE928EB0FCD009F0E9F /* MainModule */,
+				946AD2CD28E5D1860001B2DF /* Assets.xcassets */,
 				946AD2CF28E5D1860001B2DF /* LaunchScreen.storyboard */,
 				946AD2D228E5D1860001B2DF /* Info.plist */,
 			);
 			path = cryptowallet;
+			sourceTree = "<group>";
+		};
+		94DC3EE928EB0FCD009F0E9F /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				94DC3EE728EB0FC6009F0E9F /* MainViewController.swift */,
+			);
+			path = MainModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,12 +241,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94DC3EE628EB0E10009F0E9F /* Router.swift in Sources */,
 				9430FE3428E5DD5600ABDE53 /* LoginModel.swift in Sources */,
 				946AD2C928E5D1850001B2DF /* LoginViewController.swift in Sources */,
+				94DC3EE428EAE53F009F0E9F /* AssemblyBuilder.swift in Sources */,
 				9430FE3628E5DD9600ABDE53 /* LoginViewModel.swift in Sources */,
 				9430FE3128E5DC7F00ABDE53 /* BaseViewController.swift in Sources */,
+				94DC3EE828EB0FC6009F0E9F /* MainViewController.swift in Sources */,
 				946AD2C528E5D1850001B2DF /* AppDelegate.swift in Sources */,
-				946AD2C728E5D1850001B2DF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
