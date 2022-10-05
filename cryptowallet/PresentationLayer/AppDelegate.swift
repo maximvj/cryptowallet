@@ -23,13 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-       window.rootViewController = newRootVC
+        window.rootViewController = newRootVC
         
         UIView.transition(with: window,
-                             duration: 0.5,
-                             options: [.transitionFlipFromLeft],
-                             animations: nil,
-                             completion: nil)
+                          duration: 0.5,
+                          options: [.transitionCrossDissolve],
+                          animations: nil,
+                          completion: nil)
     }
 }
 

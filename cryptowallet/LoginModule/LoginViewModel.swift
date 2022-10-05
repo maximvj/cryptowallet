@@ -1,28 +1,36 @@
 
 import Foundation
 
-enum LoginError {
+enum LoginResponce: String {
     case shortInfo
     case noInfo
     case success
+    
+    func getInfo (responceType: LoginResponce) -> String {
+        switch responceType {
+        case .shortInfo:
+            return "Password and login must be more than 4 characters "
+        case .noInfo:
+            return "Enter login and password"
+        case .success: return String()
+        }
+    }
 }
 
-protocol LoginModuleProtocol {
-    init (router: RouterProtocol)
-}
 
 // In ViewModel
 protocol LoginModuleProtocolIn {
     func getData(login: String?, password: String?)
+    init (router: RouterProtocol)
 }
 
 // From ViewModel
 protocol LoginModuleProtocolOut {
-    var loginCheck: (LoginError) -> () { get set }
+    var loginCheck: (LoginResponce) -> () { get set }
 }
 
 
-class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut, LoginModuleProtocol {
+class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut {
     
     var router: RouterProtocol?
     
@@ -31,7 +39,7 @@ class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut, LoginModule
     }
     
     
-    var loginCheck: (LoginError) -> () = {_ in }
+    var loginCheck: (LoginResponce) -> () = {_ in }
     
     func getData(login: String?, password: String?) {
         guard let login = login, let password =  password else { return }
@@ -41,7 +49,7 @@ class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut, LoginModule
         switch logPass {
         case let (login, pass) where login.count == 0 || pass.count == 0: self.loginCheck(.noInfo)
         case let (login, pass) where login.count < 4 || pass.count < 4: self.loginCheck(.shortInfo)
-        default:  router?.mainViewController() 
+        default: router?.mainViewController()
         }
     }
     
