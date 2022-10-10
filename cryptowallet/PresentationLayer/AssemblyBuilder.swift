@@ -18,7 +18,9 @@ final class AssemblyBuilder: AssemblyBuilderProtocol {
     
     func createMainModule(router: RouterProtocol) -> UIViewController {
         let view = MainViewController()
-        
+        let network = NetworkService()
+        let viewModel = MainViewModel(router: router, network: network)
+        view.mainViewModel = viewModel
         return view
     }
     

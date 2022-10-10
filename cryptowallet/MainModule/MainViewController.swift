@@ -6,6 +6,7 @@ class MainViewController: BaseViewController {
     // MARK: - Properties
     
     var coinTableView = UITableView()
+    var mainViewModel: (MainModuleProtocolIn & MainModuleProtocolOut)?
     
     // MARK:  - Ovveride Methods
 
@@ -14,8 +15,25 @@ class MainViewController: BaseViewController {
         
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .systemMint
-        
         setTableView()
+        mainViewModel?.getData()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func listenViewModel() {
+        guard var mainViewModel = mainViewModel else {
+            return
+        }
+        
+        mainViewModel.sendData = { [weak self] result in
+            for i in result {
+                print(i.name)
+            }
+        }
     }
     
     override func setLayout() {

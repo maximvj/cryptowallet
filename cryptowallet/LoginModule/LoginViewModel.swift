@@ -20,8 +20,8 @@ enum LoginResponce: String {
 
 // In ViewModel
 protocol LoginModuleProtocolIn {
-    func getData(login: String?, password: String?)
     init (router: RouterProtocol)
+    func getData(login: String?, password: String?)
 }
 
 // From ViewModel
