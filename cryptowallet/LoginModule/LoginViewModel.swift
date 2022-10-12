@@ -1,6 +1,17 @@
 
 import Foundation
 
+// In ViewModel
+protocol LoginModuleProtocolIn {
+    init (router: RouterProtocol)
+    func getData(login: String?, password: String?)
+}
+
+// From ViewModel
+protocol LoginModuleProtocolOut {
+    var loginCheck: (LoginResponce) -> () { get set }
+}
+
 enum LoginResponce: String {
     case shortInfo
     case noInfo
@@ -17,29 +28,14 @@ enum LoginResponce: String {
     }
 }
 
-
-// In ViewModel
-protocol LoginModuleProtocolIn {
-    init (router: RouterProtocol)
-    func getData(login: String?, password: String?)
-}
-
-// From ViewModel
-protocol LoginModuleProtocolOut {
-    var loginCheck: (LoginResponce) -> () { get set }
-}
-
-
 class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut {
     
     var router: RouterProtocol?
+    var loginCheck: (LoginResponce) -> () = {_ in }
     
     required init(router: RouterProtocol) {
         self.router = router 
     }
-    
-    
-    var loginCheck: (LoginResponce) -> () = {_ in }
     
     func getData(login: String?, password: String?) {
         guard let login = login, let password =  password else { return }

@@ -57,6 +57,7 @@ class LoginViewController: BaseViewController {
         passwordTextField.borderStyle = .line
         passwordTextField.placeholder = "Password"
         passwordTextField.inputAccessoryView = setToobar()
+        passwordTextField.isSecureTextEntry = true
         
     }
     

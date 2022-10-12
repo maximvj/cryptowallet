@@ -6,15 +6,16 @@ class MainViewController: BaseViewController {
     // MARK: - Properties
     
     var coinTableView = UITableView()
+    var coinModelArray = [CoinModel]()
     var mainViewModel: (MainModuleProtocolIn & MainModuleProtocolOut)?
     
     // MARK:  - Ovveride Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
-        view.backgroundColor = .systemMint
+        view.backgroundColor = .white
         setTableView()
         mainViewModel?.getData()
     }
@@ -30,8 +31,9 @@ class MainViewController: BaseViewController {
         }
         
         mainViewModel.sendData = { [weak self] result in
-            for i in result {
-                print(i.name)
+            self?.coinModelArray = result
+            DispatchQueue.main.async {
+                self?.coinTableView.reloadData()
             }
         }
     }
@@ -49,29 +51,38 @@ class MainViewController: BaseViewController {
     // MARK: - Methods
     
     func setTableView () {
-        coinTableView.backgroundColor = .systemMint
         coinTableView.delegate = self
         coinTableView.dataSource = self
         coinTableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
     }
-  
-
+    
+    
 }
 
 // MARK: - Extension UITableViewDelegate, UITableViewDataSource
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        100
+        coinModelArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = coinTableView.dequeueReusableCell(withIdentifier: "CoinCell") as? CoinTableViewCell {
-            cell.backgroundColor = .yellow
-           return cell
+            cell.cellCoinModel = coinModelArray[safe: indexPath.row]
+            return cell
         }
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let coinModel = coinModelArray[safe: indexPath.row] else { return }
+        mainViewModel?.handleTapCell(description: coinModel)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        70
+    }
     
 }

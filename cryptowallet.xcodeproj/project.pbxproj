@@ -10,6 +10,8 @@
 		9430FE3128E5DC7F00ABDE53 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430FE3028E5DC7F00ABDE53 /* BaseViewController.swift */; };
 		9430FE3428E5DD5600ABDE53 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430FE3328E5DD5600ABDE53 /* LoginModel.swift */; };
 		9430FE3628E5DD9600ABDE53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430FE3528E5DD9600ABDE53 /* LoginViewModel.swift */; };
+		944CC03F28F58078008C54A6 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC03E28F58078008C54A6 /* DescriptionViewController.swift */; };
+		944CC04228F5B1FB008C54A6 /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC04128F5B1FB008C54A6 /* DescriptionViewModel.swift */; };
 		946AD2C528E5D1850001B2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946AD2C428E5D1850001B2DF /* AppDelegate.swift */; };
 		946AD2C928E5D1850001B2DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946AD2C828E5D1850001B2DF /* LoginViewController.swift */; };
 		946AD2CE28E5D1860001B2DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946AD2CD28E5D1860001B2DF /* Assets.xcassets */; };
@@ -31,12 +33,15 @@
 		9430FE3028E5DC7F00ABDE53 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9430FE3328E5DD5600ABDE53 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		9430FE3528E5DD9600ABDE53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		944CC03E28F58078008C54A6 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionViewController.swift; path = /Users/Maxim/Desktop/Work/Projects/current/cryptowallet/cryptowallet/DescriptionViewController.swift; sourceTree = "<absolute>"; };
+		944CC04128F5B1FB008C54A6 /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		946AD2C128E5D1850001B2DF /* cryptowallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cryptowallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		946AD2C428E5D1850001B2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		946AD2C828E5D1850001B2DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		946AD2CD28E5D1860001B2DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946AD2D028E5D1860001B2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		946AD2D228E5D1860001B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94A1DD6528F6CAC100E95B36 /* DescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionController.swift; path = /Users/Maxim/Desktop/Work/Projects/current/cryptowallet/cryptowallet/DescriptionController.swift; sourceTree = "<absolute>"; };
 		94B74A6328F0743800F54775 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		94D3C69628EDBA5E00E745F1 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		94D3C69828EDC15100E745F1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -100,6 +105,23 @@
 			path = LoginModule;
 			sourceTree = "<group>";
 		};
+		944CC03B28F43FB6008C54A6 /* MainModuleCells */ = {
+			isa = PBXGroup;
+			children = (
+				94D3C69628EDBA5E00E745F1 /* CoinTableViewCell.swift */,
+			);
+			path = MainModuleCells;
+			sourceTree = "<group>";
+		};
+		944CC04028F5807C008C54A6 /* DescriptionModule */ = {
+			isa = PBXGroup;
+			children = (
+				944CC04128F5B1FB008C54A6 /* DescriptionViewModel.swift */,
+				944CC03E28F58078008C54A6 /* DescriptionViewController.swift */,
+			);
+			path = DescriptionModule;
+			sourceTree = "<group>";
+		};
 		946AD2B828E5D1850001B2DF = {
 			isa = PBXGroup;
 			children = (
@@ -125,9 +147,11 @@
 				9430FE3228E5DCFB00ABDE53 /* PresentationLayer */,
 				9430FE3728E5DD9E00ABDE53 /* LoginModule */,
 				94DC3EE928EB0FCD009F0E9F /* MainModule */,
+				944CC04028F5807C008C54A6 /* DescriptionModule */,
 				946AD2CD28E5D1860001B2DF /* Assets.xcassets */,
 				946AD2CF28E5D1860001B2DF /* LaunchScreen.storyboard */,
 				946AD2D228E5D1860001B2DF /* Info.plist */,
+				94A1DD6528F6CAC100E95B36 /* DescriptionController.swift */,
 			);
 			path = cryptowallet;
 			sourceTree = "<group>";
@@ -155,7 +179,7 @@
 				94EB580028EF08E700069DA8 /* CoinModel.swift */,
 				94DC3EE728EB0FC6009F0E9F /* MainViewController.swift */,
 				94D3C69B28EDC2F000E745F1 /* MainViewModel.swift */,
-				94D3C69628EDBA5E00E745F1 /* CoinTableViewCell.swift */,
+				944CC03B28F43FB6008C54A6 /* MainModuleCells */,
 				94B74A6528F15B3D00F54775 /* Extensions */,
 			);
 			path = MainModule;
@@ -280,6 +304,7 @@
 				94DC3EE628EB0E10009F0E9F /* Router.swift in Sources */,
 				9430FE3428E5DD5600ABDE53 /* LoginModel.swift in Sources */,
 				946AD2C928E5D1850001B2DF /* LoginViewController.swift in Sources */,
+				944CC04228F5B1FB008C54A6 /* DescriptionViewModel.swift in Sources */,
 				94DC3EE428EAE53F009F0E9F /* AssemblyBuilder.swift in Sources */,
 				94EB57FF28EEE84C00069DA8 /* CoinModelData.swift in Sources */,
 				94D3C69728EDBA5E00E745F1 /* CoinTableViewCell.swift in Sources */,
@@ -289,6 +314,7 @@
 				946AD2C528E5D1850001B2DF /* AppDelegate.swift in Sources */,
 				94D3C69C28EDC2F000E745F1 /* MainViewModel.swift in Sources */,
 				94B74A6428F0743800F54775 /* Extensions.swift in Sources */,
+				944CC03F28F58078008C54A6 /* DescriptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

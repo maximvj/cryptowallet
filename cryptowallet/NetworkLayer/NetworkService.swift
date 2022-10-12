@@ -8,7 +8,7 @@ protocol NetworkServiceProtocol {
 class NetworkService: NetworkServiceProtocol {
     
     static var shared = NetworkService()
-    var coinNames = ["btc", "eth", "tron", "luna", "polkadot", "dogecoin", "tether", "stellar", "cardano", "xrp"]
+    var coinNames = ["btc", "eth", "tron", "polkadot", "dogecoin", "tether", "stellar", "cardano", "xrp"]
     
     func fetchCoinInfo(completionHandler: @escaping (([CoinModel]) -> Void)) {
         let group = DispatchGroup()

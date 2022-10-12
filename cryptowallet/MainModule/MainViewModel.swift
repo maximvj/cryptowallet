@@ -5,6 +5,7 @@ import Foundation
 protocol MainModuleProtocolIn {
     init (router: RouterProtocol, network: NetworkServiceProtocol)
     func getData()
+    func handleTapCell(description: CoinModel)
 }
 
 // From ViewModel
@@ -14,6 +15,7 @@ protocol MainModuleProtocolOut {
 
 
 class MainViewModel: MainModuleProtocolIn, MainModuleProtocolOut {
+    
     let networkService: NetworkServiceProtocol?
     let router: RouterProtocol?
     var sendData: ([CoinModel]) -> () = {_ in }
@@ -28,6 +30,8 @@ class MainViewModel: MainModuleProtocolIn, MainModuleProtocolOut {
             self?.sendData(coinModelArray)
         })
     }
-
     
+    func handleTapCell(description: CoinModel) {
+        router?.descriptionViewContoller(description: description)
+    }
 }

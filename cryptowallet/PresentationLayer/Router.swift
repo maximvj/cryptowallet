@@ -10,6 +10,7 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
     func loginViewController() -> UIViewController
     func mainViewController()
+    func descriptionViewContoller(description: CoinModel?)
 }
 
 
@@ -35,5 +36,13 @@ class Router: RouterProtocol {
             (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(newRootVC: navigationController)
         }
     }
+    
+    func descriptionViewContoller(description: CoinModel?) {
+        if let navigationController = navigationController, let description = description {
+            guard let descriptionViewController = assemblyBuilder?.createDescriptionModule(router: self, description: description) else { return }
+            navigationController.pushViewController(descriptionViewController, animated: true)
+        }
+    }
+    
 }
 
