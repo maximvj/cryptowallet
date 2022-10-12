@@ -4,6 +4,8 @@ import SnapKit
 
 class DescriptionViewController: BaseViewController {
     
+    // MARK: - Properties
+    
     var nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -22,10 +24,11 @@ class DescriptionViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
         viewModel?.getDescription()
         setStackView()
-        setLayout()
+        setupLayout()
     }
     
     override func listenViewModel() {

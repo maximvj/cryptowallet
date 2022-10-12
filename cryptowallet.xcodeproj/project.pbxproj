@@ -41,7 +41,6 @@
 		946AD2CD28E5D1860001B2DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946AD2D028E5D1860001B2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		946AD2D228E5D1860001B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94A1DD6528F6CAC100E95B36 /* DescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionController.swift; path = /Users/Maxim/Desktop/Work/Projects/current/cryptowallet/cryptowallet/DescriptionController.swift; sourceTree = "<absolute>"; };
 		94B74A6328F0743800F54775 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		94D3C69628EDBA5E00E745F1 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		94D3C69828EDC15100E745F1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 				946AD2CD28E5D1860001B2DF /* Assets.xcassets */,
 				946AD2CF28E5D1860001B2DF /* LaunchScreen.storyboard */,
 				946AD2D228E5D1860001B2DF /* Info.plist */,
-				94A1DD6528F6CAC100E95B36 /* DescriptionController.swift */,
 			);
 			path = cryptowallet;
 			sourceTree = "<group>";
