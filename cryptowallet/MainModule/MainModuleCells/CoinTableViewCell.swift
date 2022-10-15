@@ -5,14 +5,14 @@ import SnapKit
 class CoinTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    
+
+    var priceLabel = UILabel()
+    var dayChangeLabel = UILabel()
     var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         return label
     }()
-    var priceLabel = UILabel()
-    var dayChangeLabel = UILabel()
     
     var cellStackView = UIStackView()
     

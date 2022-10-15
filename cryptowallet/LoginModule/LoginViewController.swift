@@ -3,25 +3,26 @@ import UIKit
 import SnapKit
 
 
-class LoginViewController: BaseViewController {
+class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     let label = UILabel()
-    let loginButton = UIButton()
+    let loginButton = CustomButton()
     let loginTextField = UITextField()
     let passwordTextField = UITextField()
     var stackView = UIStackView()
     var loginViewModel: (LoginModuleProtocolIn & LoginModuleProtocolOut)?
     
-    // MARK: - Ovveride methods
+    // MARK: - Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         view.backgroundColor = .white
         
+        listenViewModel()
+        setLayout()
         setTextFields()
         setLoginButton()
         setLabel()
@@ -29,7 +30,9 @@ class LoginViewController: BaseViewController {
         setLayout()
     }
     
-    override func listenViewModel() {
+    // MARK: - Methods
+    
+    func listenViewModel() {
         guard var loginViewModel = loginViewModel else {
             return
         }
@@ -39,16 +42,14 @@ class LoginViewController: BaseViewController {
         }
     }
     
-    override func setLayout() {
-        view.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(150)
-            make.left.equalTo(50)
-            make.right.equalTo(-50)
+        func setLayout() {
+            view.addSubview(stackView)
+            stackView.snp.makeConstraints { make in
+                make.top.equalTo(150)
+                make.left.equalTo(50)
+                make.right.equalTo(-50)
+            }
         }
-    }
-    
-    // MARK: - Methods
     
     func setTextFields() {
         loginTextField.borderStyle = .line
@@ -75,8 +76,6 @@ class LoginViewController: BaseViewController {
     }
     
     func setLoginButton() {
-        loginButton.backgroundColor = .systemTeal
-        loginButton.layer.cornerRadius = 10
         loginButton.setTitle("Login", for: .normal)
         loginButton.addTarget(self, action: #selector(tapLoginButton), for: .touchUpInside)
     }

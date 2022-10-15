@@ -19,9 +19,7 @@ struct DataClass: Codable {
         case roiData = "roi_data"
         case marketData = "market_data"
     }
-    
 }
-
 
 // MARK: - MarketData
 

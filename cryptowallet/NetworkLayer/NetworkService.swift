@@ -5,9 +5,8 @@ protocol NetworkServiceProtocol {
     func fetchCoinInfo (completionHandler: @escaping (([CoinModel]) -> Void))
 }
 
-class NetworkService: NetworkServiceProtocol {
+final class NetworkService: NetworkServiceProtocol {
     
-    static var shared = NetworkService()
     var coinNames = ["btc", "eth", "tron", "polkadot", "dogecoin", "tether", "stellar", "cardano", "xrp"]
     
     func fetchCoinInfo(completionHandler: @escaping (([CoinModel]) -> Void)) {
@@ -30,7 +29,7 @@ class NetworkService: NetworkServiceProtocol {
         }
         
         group.notify(queue: .main) {
-            let sortedArray = coinModelArray.sorted(by: { $0.name < $1.name })
+            let sortedArray = coinModelArray.sorted(by: {$0.percentChangeUSDperDay ?? 0 > $1.percentChangeUSDperDay ?? 0})
             completionHandler(sortedArray)
         }
     }

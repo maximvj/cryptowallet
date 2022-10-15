@@ -1,9 +1,3 @@
-//
-//  MainModel.swift
-//  cryptowallet
-//
-//  Created by Maxim on 06.10.2022.
-//
 
 import Foundation
 
@@ -22,7 +16,7 @@ struct CoinModel {
     
     var dayChangeInUSDString: String {
         if let percentChangeUSDperDay = percentChangeUSDperDay {
-            return "Change per day: " + String(format: "%.6f", percentChangeUSDperDay) + " $"
+            return "Change per day: " + String(format: "%.6f", percentChangeUSDperDay) + " %"
         }
         return "Change per day: " + " ... " + " $"
     }

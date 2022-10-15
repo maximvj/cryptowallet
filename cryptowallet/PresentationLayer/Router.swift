@@ -8,13 +8,14 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-    func loginViewController() -> UIViewController
-    func mainViewController()
-    func descriptionViewContoller(description: CoinModel?)
+    func initialViewController()
+    func rootLoginViewController()
+    func rootMainViewController()
+    func descriptionViewController(description: CoinModel?)
+    func indicatorViewController(state: Bool)
 }
 
-
-class Router: RouterProtocol {
+final class Router: RouterProtocol {
     
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
@@ -24,12 +25,20 @@ class Router: RouterProtocol {
         self.assemblyBuilder = assemblyBuilder
     }
     
-    func loginViewController() -> UIViewController {
-    guard let loginViewController = assemblyBuilder?.createLoginModule(router: self) else { return UIViewController() }
-           return loginViewController
+    func initialViewController() {
+        if UserDefaults.standard.isLoggedIn() {
+            self.rootMainViewController()
+        } else {
+            self.rootLoginViewController()
+        }
     }
     
-    func mainViewController() {
+    func rootLoginViewController() {
+    guard let loginViewController = assemblyBuilder?.createLoginModule(router: self) else { return }
+        (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(newRootVC: loginViewController)
+    }
+    
+    func rootMainViewController() {
         if let navigationController = navigationController {
             guard let mainViewController = assemblyBuilder?.createMainModule(router: self) else { return }
             navigationController.viewControllers = [mainViewController]
@@ -37,10 +46,18 @@ class Router: RouterProtocol {
         }
     }
     
-    func descriptionViewContoller(description: CoinModel?) {
+    func descriptionViewController(description: CoinModel?) {
         if let navigationController = navigationController, let description = description {
             guard let descriptionViewController = assemblyBuilder?.createDescriptionModule(router: self, description: description) else { return }
             navigationController.pushViewController(descriptionViewController, animated: true)
+        }
+    }
+    
+    func indicatorViewController(state: Bool) {
+        if state {
+            (UIApplication.shared.delegate as? AppDelegate)?.indicatorWindow?.makeKeyAndVisible()
+        } else {
+            (UIApplication.shared.delegate as? AppDelegate)?.window?.makeKeyAndVisible()
         }
     }
     

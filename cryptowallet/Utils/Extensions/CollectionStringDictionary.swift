@@ -46,7 +46,7 @@ extension Dictionary {
                let ky = k.underscoreToCamelCase as? Key {
                 newKey = ky
             }
-
+            
             dict[newKey] = value
         }
 

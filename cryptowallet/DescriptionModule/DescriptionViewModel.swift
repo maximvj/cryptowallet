@@ -1,6 +1,8 @@
 
 import Foundation
 
+// MARK: - Protocols
+
 // In ViewModel
 protocol DescriptionModuleProtocolIn {
     init (router: RouterProtocol, description: CoinModel)
@@ -11,6 +13,8 @@ protocol DescriptionModuleProtocolIn {
 protocol DescriptionModuleProtocolOut {
     var sendData: (CoinModel) -> () { get set }
 }
+
+// MARK: - Classes
 
 class DescriptionViewModel: DescriptionModuleProtocolIn, DescriptionModuleProtocolOut  {
     var router: RouterProtocol?

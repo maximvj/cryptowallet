@@ -2,7 +2,7 @@
 import UIKit
 import SnapKit
 
-class DescriptionViewController: BaseViewController {
+class DescriptionViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -22,16 +22,39 @@ class DescriptionViewController: BaseViewController {
     
     var descriptionStackView = UIStackView()
     
+    // MARK: - Override methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
+        
+        listenViewModel()
         viewModel?.getDescription()
         setStackView()
-        setupLayout()
+        setLayout()
     }
     
-    override func listenViewModel() {
+    // MARK: - Methods
+    
+    func setStackView() {
+        descriptionStackView = UIStackView(arrangedSubviews: [nameLabel, priceLabel, dayChangeLabel, roiWeekLabel, roiMonthLabel, roiYearLabel ])
+        descriptionStackView.axis = .vertical
+        descriptionStackView.spacing = 20
+        descriptionStackView.distribution = .fillEqually
+    }
+    
+    func setLayout() {
+        view.addSubview(descriptionStackView)
+        descriptionStackView.snp.makeConstraints { make in
+            make.top.equalTo(50)
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.bottom.equalTo(-300)
+        }
+    }
+    
+    func listenViewModel() {
         viewModel?.sendData = { [weak self] description in
             self?.nameLabel.text = description.name
             self?.priceLabel.text = description.priceUsdString
@@ -39,24 +62,6 @@ class DescriptionViewController: BaseViewController {
             self?.roiWeekLabel.text = description.roiLast1Week
             self?.roiMonthLabel.text = description.roiLast1Month
             self?.roiYearLabel.text = description.roiLast1Year
-        }
-    }
-    
-    func setStackView() {
-        descriptionStackView = UIStackView(arrangedSubviews: [nameLabel, priceLabel, dayChangeLabel, roiWeekLabel, roiMonthLabel, roiYearLabel ])
-        descriptionStackView.axis = .vertical
-        descriptionStackView.alignment = .fill
-        descriptionStackView.distribution = .equalCentering
-        
-    }
-    
-    func setupLayout() {
-        view.addSubview(descriptionStackView)
-        descriptionStackView.snp.makeConstraints { make in
-            make.top.equalTo(50)
-            make.left.equalTo(20)
-            make.right.equalTo(-20)
-            make.bottom.equalTo(-300)
         }
     }
     

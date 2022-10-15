@@ -1,6 +1,8 @@
 
 import Foundation
 
+// MARK: - Protocols
+
 // In ViewModel
 protocol LoginModuleProtocolIn {
     init (router: RouterProtocol)
@@ -11,6 +13,8 @@ protocol LoginModuleProtocolIn {
 protocol LoginModuleProtocolOut {
     var loginCheck: (LoginResponce) -> () { get set }
 }
+
+// MARK: - Enums
 
 enum LoginResponce: String {
     case shortInfo
@@ -27,6 +31,8 @@ enum LoginResponce: String {
         }
     }
 }
+
+// MARK: - Classes
 
 class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut {
     
@@ -45,7 +51,7 @@ class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut {
         switch logPass {
         case let (login, pass) where login.count == 0 || pass.count == 0: self.loginCheck(.noInfo)
         case let (login, pass) where login.count <= 4 || pass.count <= 4: self.loginCheck(.shortInfo)
-        default: router?.mainViewController()
+        default: router?.rootMainViewController(); UserDefaults.standard.setIsLoggedIn(value: true)
         }
     }
     
