@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9430FE3628E5DD9600ABDE53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9430FE3528E5DD9600ABDE53 /* LoginViewModel.swift */; };
-		944CC03F28F58078008C54A6 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC03E28F58078008C54A6 /* DescriptionViewController.swift */; };
 		944CC04228F5B1FB008C54A6 /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944CC04128F5B1FB008C54A6 /* DescriptionViewModel.swift */; };
 		946AD2C528E5D1850001B2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946AD2C428E5D1850001B2DF /* AppDelegate.swift */; };
 		946AD2C928E5D1850001B2DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946AD2C828E5D1850001B2DF /* LoginViewController.swift */; };
 		946AD2CE28E5D1860001B2DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946AD2CD28E5D1860001B2DF /* Assets.xcassets */; };
 		946AD2D128E5D1860001B2DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946AD2CF28E5D1860001B2DF /* LaunchScreen.storyboard */; };
 		9476888028FAD15300E11E39 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476887F28FAD15300E11E39 /* UserDefaults+helpers.swift */; };
+		948AB1B428FBF9A4002AFE42 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948AB1B328FBF9A4002AFE42 /* DescriptionViewController.swift */; };
 		94B74A6428F0743800F54775 /* CollectionStringDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B74A6328F0743800F54775 /* CollectionStringDictionary.swift */; };
 		94D3C17F28F6DFB700355F9E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D3C17E28F6DFB700355F9E /* CustomButton.swift */; };
 		94D3C69728EDBA5E00E745F1 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D3C69628EDBA5E00E745F1 /* CoinTableViewCell.swift */; };
@@ -32,7 +32,6 @@
 /* Begin PBXFileReference section */
 		6DB9AB35B6DAE616D5E32904 /* Pods-cryptowallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptowallet.release.xcconfig"; path = "Target Support Files/Pods-cryptowallet/Pods-cryptowallet.release.xcconfig"; sourceTree = "<group>"; };
 		9430FE3528E5DD9600ABDE53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		944CC03E28F58078008C54A6 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionViewController.swift; path = /Users/Maxim/Desktop/Work/Projects/current/cryptowallet/cryptowallet/DescriptionViewController.swift; sourceTree = "<absolute>"; };
 		944CC04128F5B1FB008C54A6 /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		946AD2C128E5D1850001B2DF /* cryptowallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cryptowallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		946AD2C428E5D1850001B2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		946AD2D028E5D1860001B2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		946AD2D228E5D1860001B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9476887F28FAD15300E11E39 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
+		948AB1B328FBF9A4002AFE42 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		94B74A6328F0743800F54775 /* CollectionStringDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionStringDictionary.swift; sourceTree = "<group>"; };
 		94D3C17E28F6DFB700355F9E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		94D3C69628EDBA5E00E745F1 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 		944CC04028F5807C008C54A6 /* DescriptionModule */ = {
 			isa = PBXGroup;
 			children = (
-				944CC03E28F58078008C54A6 /* DescriptionViewController.swift */,
 				944CC04128F5B1FB008C54A6 /* DescriptionViewModel.swift */,
+				948AB1B328FBF9A4002AFE42 /* DescriptionViewController.swift */,
 			);
 			path = DescriptionModule;
 			sourceTree = "<group>";
@@ -325,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94D3C69928EDC15100E745F1 /* NetworkService.swift in Sources */,
+				948AB1B428FBF9A4002AFE42 /* DescriptionViewController.swift in Sources */,
 				94EB580128EF08E700069DA8 /* CoinModel.swift in Sources */,
 				94DC3EE628EB0E10009F0E9F /* Router.swift in Sources */,
 				946AD2C928E5D1850001B2DF /* LoginViewController.swift in Sources */,
@@ -340,7 +341,6 @@
 				9476888028FAD15300E11E39 /* UserDefaults+helpers.swift in Sources */,
 				94D3C69C28EDC2F000E745F1 /* MainViewModel.swift in Sources */,
 				94B74A6428F0743800F54775 /* CollectionStringDictionary.swift in Sources */,
-				944CC03F28F58078008C54A6 /* DescriptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

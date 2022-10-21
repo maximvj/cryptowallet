@@ -4,7 +4,7 @@ import Foundation
 // MARK: - Protocols
 
 // In ViewModel
-protocol MainModuleProtocolIn {
+protocol MainModuleProtocolIn{
     init (router: RouterProtocol, network: NetworkServiceProtocol)
     func getData()
     func handleTapCell(description: CoinModel)
@@ -13,7 +13,7 @@ protocol MainModuleProtocolIn {
 }
 
 // From ViewModel
-protocol MainModuleProtocolOut {
+protocol MainModuleProtocolOut: AnyObject {
     var sendData: ([CoinModel]) -> () { get set }
     func getSortedData(state: TapState) -> [CoinModel]
 }
@@ -24,10 +24,11 @@ class MainViewModel: MainModuleProtocolIn, MainModuleProtocolOut {
     
     // MARK: - Properties
     
-    let networkService: NetworkServiceProtocol?
-    let router: RouterProtocol?
     var sendData: ([CoinModel]) -> () = {_ in }
-    var coinModelArray = [CoinModel]()
+    
+    private let networkService: NetworkServiceProtocol?
+    private let router: RouterProtocol?
+    private var coinModelArray = [CoinModel]()
     
    // MARK: - Inits
     

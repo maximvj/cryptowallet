@@ -5,18 +5,17 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    var sortButton = CustomButton()
-    var refreshButton = CustomButton()
-    var logOutButton = CustomButton ()
-    
-    var stackView = UIStackView()
-    
-    var coinTableView = UITableView()
-    
-    var coinModelArray = [CoinModel]()
     var mainViewModel: (MainModuleProtocolIn & MainModuleProtocolOut)?
     
-    // MARK:  - Ovveride Methods
+    private var sortButton = CustomButton()
+    private var refreshButton = CustomButton()
+    private var logOutButton = CustomButton ()
+    private var stackView = UIStackView()
+    private var coinTableView = UITableView()
+    private var coinModelArray = [CoinModel]()
+    
+    
+    // MARK:  - Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,26 +34,26 @@ class MainViewController: UIViewController {
     
     // MARK: - Methods
     
-    func listenViewModel() {
-        guard var mainViewModel = mainViewModel else {
+    private func listenViewModel() {
+        guard let mainViewModel = mainViewModel else {
             return
         }
-        mainViewModel.sendData = { [weak self] result in
+        mainViewModel.sendData = { [weak self, weak mainViewModel] result in
             self?.coinModelArray = result
             DispatchQueue.main.async {
                 self?.coinTableView.reloadData()
             }
-            mainViewModel.showActivityIndicator(state: false)
+            mainViewModel?.showActivityIndicator(state: false)
         }
     }
     
-    func setTableView () {
+    private func setTableView () {
         coinTableView.delegate = self
         coinTableView.dataSource = self
         coinTableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
     }
     
-    func setButtons () {
+    private func setButtons () {
         logOutButton.setTitle("Logout", for: .normal)
         refreshButton.setTitle("Refresh", for: .normal)
         sortButton.setTitle("Change(1 day) ↓", for: .normal)
@@ -65,14 +64,14 @@ class MainViewController: UIViewController {
         
     }
     
-    func setStackView() {
+    private func setStackView() {
         stackView = UIStackView(arrangedSubviews: [logOutButton, sortButton, refreshButton])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.distribution = .fillProportionally
     }
     
-    func setLayout() {
+    private func setLayout() {
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.top.equalTo(90)
@@ -92,13 +91,13 @@ class MainViewController: UIViewController {
     
     // MARK: - Objc methods
     
-    @objc func refreshData () {
+    @objc private func refreshData () {
         mainViewModel?.showActivityIndicator(state: true)
         mainViewModel?.getData()
         sortButton.setTitle("Change(1 day) ↓", for: .normal)
     }
     
-    @objc func sortByChange() {
+    @objc private func sortByChange() {
         if let tapState = sortButton.tapState, let coinArray = mainViewModel?.getSortedData(state: tapState) {
             coinModelArray = coinArray
             
@@ -114,7 +113,8 @@ class MainViewController: UIViewController {
         sortButton.switchTapState()
     }
     
-    @objc func logOut () {
+    @objc private func logOut () {
+        
         mainViewModel?.logOut()
     }
 }

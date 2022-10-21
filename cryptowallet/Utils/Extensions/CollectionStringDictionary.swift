@@ -1,9 +1,3 @@
-//
-//  Extensions.swift
-//  cryptowallet
-//
-//  Created by Maxim on 07.10.2022.
-//
 
 import Foundation
 

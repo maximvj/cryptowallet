@@ -17,9 +17,10 @@ protocol DescriptionModuleProtocolOut {
 // MARK: - Classes
 
 class DescriptionViewModel: DescriptionModuleProtocolIn, DescriptionModuleProtocolOut  {
-    var router: RouterProtocol?
-    var description: CoinModel?
     var sendData: (CoinModel) -> () = {_ in }
+    
+    private var router: RouterProtocol?
+    private var description: CoinModel?
     
     required init(router: RouterProtocol, description: CoinModel) {
         self.router = router

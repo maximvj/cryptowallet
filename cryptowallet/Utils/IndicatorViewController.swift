@@ -27,7 +27,7 @@ class IndicatorViewController: UIViewController {
         spiner.stopAnimating()
     }
     
-    func setLayout() {
+    private func setLayout() {
         view.addSubview(spiner)
         spiner.snp.makeConstraints { make in
             make.centerY.equalTo(view.snp.centerY)

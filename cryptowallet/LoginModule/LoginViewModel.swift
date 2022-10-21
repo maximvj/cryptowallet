@@ -51,7 +51,7 @@ class LoginViewModel: LoginModuleProtocolIn, LoginModuleProtocolOut {
         switch logPass {
         case let (login, pass) where login.count == 0 || pass.count == 0: self.loginCheck(.noInfo)
         case let (login, pass) where login.count <= 4 || pass.count <= 4: self.loginCheck(.shortInfo)
-        default: router?.rootMainViewController(); UserDefaults.standard.setIsLoggedIn(value: true)
+        default: self.loginCheck(.success); router?.rootMainViewController(); UserDefaults.standard.setIsLoggedIn(value: true)
         }
     }
     

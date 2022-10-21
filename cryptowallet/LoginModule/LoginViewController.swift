@@ -2,17 +2,16 @@
 import UIKit
 import SnapKit
 
-
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     let label = UILabel()
-    let loginButton = CustomButton()
-    let loginTextField = UITextField()
-    let passwordTextField = UITextField()
-    var stackView = UIStackView()
     var loginViewModel: (LoginModuleProtocolIn & LoginModuleProtocolOut)?
+    private let loginButton = CustomButton()
+    private let loginTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private var stackView = UIStackView()
     
     // MARK: - Override methods
     
@@ -39,17 +38,18 @@ class LoginViewController: UIViewController {
         
         loginViewModel.loginCheck = { [weak self] result in
             self?.checkLogin(result: result)
+            
         }
     }
     
-        func setLayout() {
-            view.addSubview(stackView)
-            stackView.snp.makeConstraints { make in
-                make.top.equalTo(150)
-                make.left.equalTo(50)
-                make.right.equalTo(-50)
-            }
+    func setLayout() {
+        view.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(150)
+            make.left.equalTo(50)
+            make.right.equalTo(-50)
         }
+    }
     
     func setTextFields() {
         loginTextField.borderStyle = .line
@@ -115,4 +115,3 @@ class LoginViewController: UIViewController {
     }
     
 }
-
