@@ -9,13 +9,12 @@ class MainViewController: UIViewController {
     
     private var sortButton = CustomButton()
     private var refreshButton = CustomButton()
-    private var logOutButton = CustomButton ()
+    private var logOutButton = CustomButton()
     private var stackView = UIStackView()
     private var coinTableView = UITableView()
     private var coinModelArray = [CoinModel]()
     
-    
-    // MARK:  - Override Methods
+    // MARK: - Override Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

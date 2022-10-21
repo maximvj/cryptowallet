@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
         
         listenViewModel()
@@ -59,7 +58,6 @@ class LoginViewController: UIViewController {
         passwordTextField.placeholder = "Password"
         passwordTextField.inputAccessoryView = setToobar()
         passwordTextField.isSecureTextEntry = true
-        
     }
     
     func setToobar() -> UIToolbar {
@@ -113,5 +111,4 @@ class LoginViewController: UIViewController {
             passwordTextField.resignFirstResponder()
         }
     }
-    
 }

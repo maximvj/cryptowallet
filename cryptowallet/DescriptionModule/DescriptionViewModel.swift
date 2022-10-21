@@ -16,7 +16,7 @@ protocol DescriptionModuleProtocolOut {
 
 // MARK: - Classes
 
-class DescriptionViewModel: DescriptionModuleProtocolIn, DescriptionModuleProtocolOut  {
+class DescriptionViewModel: DescriptionModuleProtocolIn, DescriptionModuleProtocolOut {
     var sendData: (CoinModel) -> () = {_ in }
     
     private var router: RouterProtocol?

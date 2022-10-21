@@ -30,15 +30,15 @@ extension Dictionary {
         keys.enumerated().forEach { (index, key) in
 
             var value = values[index]
-            if let v = value as? Dictionary,
-               let vl = v.keysToCamelCase() as? Value {
-                value = vl
+            if let valueString = value as? Dictionary,
+               let valueCamelcase = valueString.keysToCamelCase() as? Value {
+                value = valueCamelcase
             }
 
             var newKey = key
-            if let k = key as? String,
-               let ky = k.underscoreToCamelCase as? Key {
-                newKey = ky
+            if let keyString = key as? String,
+               let keyCamelCase = keyString.underscoreToCamelCase as? Key {
+                newKey = keyCamelCase
             }
             
             dict[newKey] = value

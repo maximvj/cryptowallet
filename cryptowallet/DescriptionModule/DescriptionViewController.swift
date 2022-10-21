@@ -38,7 +38,12 @@ class DescriptionViewController: UIViewController {
     // MARK: - Methods
     
     private func setStackView() {
-        descriptionStackView = UIStackView(arrangedSubviews: [nameLabel, priceLabel, dayChangeLabel, roiWeekLabel, roiMonthLabel, roiYearLabel ])
+        descriptionStackView = UIStackView(arrangedSubviews: [nameLabel,
+                                                              priceLabel,
+                                                              dayChangeLabel,
+                                                              roiWeekLabel,
+                                                              roiMonthLabel,
+                                                              roiYearLabel])
         descriptionStackView.axis = .vertical
         descriptionStackView.spacing = 20
         descriptionStackView.distribution = .fillEqually

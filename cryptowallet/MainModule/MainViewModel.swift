@@ -4,7 +4,7 @@ import Foundation
 // MARK: - Protocols
 
 // In ViewModel
-protocol MainModuleProtocolIn{
+protocol MainModuleProtocolIn {
     init (router: RouterProtocol, network: NetworkServiceProtocol)
     func getData()
     func handleTapCell(description: CoinModel)

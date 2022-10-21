@@ -48,8 +48,10 @@ final class Router: RouterProtocol {
     
     func descriptionViewController(description: CoinModel?) {
         if let navigationController = navigationController, let description = description {
-            guard let descriptionViewController = assemblyBuilder?.createDescriptionModule(router: self, description: description) else { return }
-            navigationController.pushViewController(descriptionViewController, animated: true)
+            guard let descriptionVC = assemblyBuilder?.createDescriptionModule(router: self,
+                                                                               description: description)
+            else { return }
+            navigationController.pushViewController(descriptionVC, animated: true)
         }
     }
     
@@ -59,7 +61,5 @@ final class Router: RouterProtocol {
         } else {
             (UIApplication.shared.delegate as? AppDelegate)?.window?.makeKeyAndVisible()
         }
-    }
-    
+    }    
 }
-

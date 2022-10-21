@@ -6,7 +6,6 @@ protocol NetworkServiceProtocol {
 }
 
 final class NetworkService: NetworkServiceProtocol {
-    
     var coinNames = ["btc", "eth", "tron", "polkadot", "dogecoin", "tether", "stellar", "cardano", "xrp"]
     
     func fetchCoinInfo(completionHandler: @escaping (([CoinModel]) -> Void)) {
@@ -27,7 +26,6 @@ final class NetworkService: NetworkServiceProtocol {
             }
             .resume()
         }
-        
         group.notify(queue: .main) {
             let sortedArray = coinModelArray.sorted(by: {$0.percentChangeUSDperDay ?? 0 > $1.percentChangeUSDperDay ?? 0})
             completionHandler(sortedArray)
