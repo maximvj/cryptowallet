@@ -5,14 +5,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var indicatorWindow: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let navigationController = UINavigationController()
+        let indicatorViewController = IndicatorViewController()
         let assemblyBuilder = AssemblyBuilder()
         let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
+        
+        indicatorWindow = UIWindow(frame: UIScreen.main.bounds)
+        indicatorWindow?.rootViewController = indicatorViewController
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = router.loginViewController()
+        router.initialViewController()
         window?.makeKeyAndVisible()
         
         return true
@@ -32,4 +37,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           completion: nil)
     }
 }
-
