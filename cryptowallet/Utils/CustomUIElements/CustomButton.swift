@@ -1,12 +1,12 @@
 
 import UIKit
 
-enum TapState {
-    case stateOne
-    case stateTwo
-}
-
 class CustomButton: UIButton {
+    
+    enum TapState {
+        case stateOne
+        case stateTwo
+    }
     
     var tapState: TapState?
   

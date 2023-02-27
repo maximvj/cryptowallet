@@ -61,12 +61,14 @@ class DescriptionViewController: UIViewController {
     
     private func listenViewModel() {
         viewModel?.sendData = { [weak self] description in
-            self?.nameLabel.text = description.name
-            self?.priceLabel.text = description.priceUsdString
-            self?.dayChangeLabel.text = description.dayChangeInUSDString
-            self?.roiWeekLabel.text = description.roiLast1Week
-            self?.roiMonthLabel.text = description.roiLast1Month
-            self?.roiYearLabel.text = description.roiLast1Year
+            guard let self = self else { return }
+            
+            self.nameLabel.text = description.name
+            self.priceLabel.text = description.priceUsdString
+            self.dayChangeLabel.text = description.dayChangeInUSDString
+            self.roiWeekLabel.text = description.roiLast1Week
+            self.roiMonthLabel.text = description.roiLast1Month
+            self.roiYearLabel.text = description.roiLast1Year
         }
     }
     

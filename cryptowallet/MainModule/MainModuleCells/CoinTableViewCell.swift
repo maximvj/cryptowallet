@@ -5,7 +5,7 @@ import SnapKit
 class CoinTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    
+    static let identifier = "CoinCell"
     var cellCoinModel: CoinModel? {
         didSet {
             nameLabel.text = cellCoinModel?.name

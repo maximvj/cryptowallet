@@ -34,32 +34,44 @@ final class Router: RouterProtocol {
     }
     
     func rootLoginViewController() {
-    guard let loginViewController = assemblyBuilder?.createLoginModule(router: self) else { return }
+        guard let loginViewController = assemblyBuilder?.createLoginModule(router: self) else { return }
+        
         (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(newRootVC: loginViewController)
     }
     
     func rootMainViewController() {
-        if let navigationController = navigationController {
-            guard let mainViewController = assemblyBuilder?.createMainModule(router: self) else { return }
-            navigationController.viewControllers = [mainViewController]
-            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(newRootVC: navigationController)
-        }
+        guard let mainViewController = assemblyBuilder?.createMainModule(router: self),
+              let navigationController = navigationController
+        else { return }
+        
+        navigationController.viewControllers = [mainViewController]
+        Constants.appDelegate?.changeRootViewController(newRootVC: navigationController)
     }
     
     func descriptionViewController(description: CoinModel?) {
-        if let navigationController = navigationController, let description = description {
-            guard let descriptionVC = assemblyBuilder?.createDescriptionModule(router: self,
-                                                                               description: description)
+            guard  let description = description,
+                   let descript = assemblyBuilder?.createDescriptionModule(
+                    router: self,
+                    description: description ),
+                    let navigationController = navigationController
             else { return }
-            navigationController.pushViewController(descriptionVC, animated: true)
-        }
+        
+            navigationController.pushViewController(descript, animated: true)
     }
     
     func indicatorViewController(state: Bool) {
         if state {
-            (UIApplication.shared.delegate as? AppDelegate)?.indicatorWindow?.makeKeyAndVisible()
+            Constants.appDelegate?.indicatorWindow?.makeKeyAndVisible()
         } else {
-            (UIApplication.shared.delegate as? AppDelegate)?.window?.makeKeyAndVisible()
+            Constants.appDelegate?.window?.makeKeyAndVisible()
         }
-    }    
+    }
+}
+
+extension Router {
+    
+    enum Constants {
+        static let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    }
+    
 }

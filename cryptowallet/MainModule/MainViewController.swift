@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
         guard let mainViewModel = mainViewModel else {
             return
         }
+        
         mainViewModel.sendData = { [weak self, weak mainViewModel] result in
             self?.coinModelArray = result
             DispatchQueue.main.async {
@@ -49,7 +50,7 @@ class MainViewController: UIViewController {
     private func setTableView () {
         coinTableView.delegate = self
         coinTableView.dataSource = self
-        coinTableView.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
+        coinTableView.register(CoinTableViewCell.self, forCellReuseIdentifier: CoinTableViewCell.identifier)
     }
     
     private func setButtons () {
@@ -126,7 +127,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = coinTableView.dequeueReusableCell(withIdentifier: "CoinCell") as? CoinTableViewCell {
+        if let cell = coinTableView.dequeueReusableCell(withIdentifier: CoinTableViewCell.identifier) as? CoinTableViewCell {
             cell.cellCoinModel = coinModelArray[safe: indexPath.row]
             return cell
         }

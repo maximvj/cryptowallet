@@ -26,6 +26,7 @@
 		94EB57FF28EEE84C00069DA8 /* CoinModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB57FE28EEE84C00069DA8 /* CoinModelData.swift */; };
 		94EB580128EF08E700069DA8 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB580028EF08E700069DA8 /* CoinModel.swift */; };
 		94FC22D928F9DEFC00BF6E97 /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FC22D828F9DEFC00BF6E97 /* IndicatorViewController.swift */; };
+		B9814C0229AD2A1700CE4E9F /* URLSession extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9814C0129AD2A1700CE4E9F /* URLSession extension.swift */; };
 		C8BEA61137FAEE61C996F192 /* Pods_cryptowallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FFDBE7BCF1D124D94E27DA /* Pods_cryptowallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		94EB57FE28EEE84C00069DA8 /* CoinModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModelData.swift; sourceTree = "<group>"; };
 		94EB580028EF08E700069DA8 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 		94FC22D828F9DEFC00BF6E97 /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
+		B9814C0129AD2A1700CE4E9F /* URLSession extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession extension.swift"; sourceTree = "<group>"; };
 		D22F2F4F5098451E77C42826 /* Pods-cryptowallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptowallet.debug.xcconfig"; path = "Target Support Files/Pods-cryptowallet/Pods-cryptowallet.debug.xcconfig"; sourceTree = "<group>"; };
 		F3FFDBE7BCF1D124D94E27DA /* Pods_cryptowallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cryptowallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 			children = (
 				94B74A6328F0743800F54775 /* CollectionStringDictionary.swift */,
 				9476887F28FAD15300E11E39 /* UserDefaults+helpers.swift */,
+				B9814C0129AD2A1700CE4E9F /* URLSession extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94D3C69928EDC15100E745F1 /* NetworkService.swift in Sources */,
+				B9814C0229AD2A1700CE4E9F /* URLSession extension.swift in Sources */,
 				948AB1B428FBF9A4002AFE42 /* DescriptionViewController.swift in Sources */,
 				94EB580128EF08E700069DA8 /* CoinModel.swift in Sources */,
 				94DC3EE628EB0E10009F0E9F /* Router.swift in Sources */,

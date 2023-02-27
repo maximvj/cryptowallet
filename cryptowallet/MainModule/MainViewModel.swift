@@ -15,7 +15,7 @@ protocol MainModuleProtocolIn {
 // From ViewModel
 protocol MainModuleProtocolOut: AnyObject {
     var sendData: ([CoinModel]) -> () { get set }
-    func getSortedData(state: TapState) -> [CoinModel]
+    func getSortedData(state: CustomButton.TapState) -> [CoinModel]
 }
 
 // MARK: - Classes
@@ -46,7 +46,7 @@ class MainViewModel: MainModuleProtocolIn, MainModuleProtocolOut {
         })
     }
     
-    func getSortedData(state: TapState) -> [CoinModel] {
+    func getSortedData(state: CustomButton.TapState) -> [CoinModel] {
         switch state {
         case .stateOne:
             let model = coinModelArray.sorted(by: {$0.percentChangeUSDperDay ?? 0 < $1.percentChangeUSDperDay ?? 0})
