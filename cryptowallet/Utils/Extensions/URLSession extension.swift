@@ -1,9 +1,3 @@
-//
-//  URLSession extension.swift
-//  cryptowallet
-//
-//  Created by Maxim Work on 27.02.2023.
-//
 
 import Foundation
 
