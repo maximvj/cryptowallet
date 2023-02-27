@@ -2,26 +2,25 @@
 import UIKit
 import SnapKit
 
-
-class LoginViewController: BaseViewController {
+class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
     let label = UILabel()
-    let loginButton = UIButton()
-    let loginTextField = UITextField()
-    let passwordTextField = UITextField()
-    var stackView = UIStackView()
     var loginViewModel: (LoginModuleProtocolIn & LoginModuleProtocolOut)?
+    private let loginButton = CustomButton()
+    private let loginTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private var stackView = UIStackView()
     
-    // MARK: - Ovveride methods
+    // MARK: - Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         view.backgroundColor = .white
         
+        listenViewModel()
+        setLayout()
         setTextFields()
         setLoginButton()
         setLabel()
@@ -29,17 +28,20 @@ class LoginViewController: BaseViewController {
         setLayout()
     }
     
-    override func listenViewModel() {
+    // MARK: - Methods
+    
+    func listenViewModel() {
         guard var loginViewModel = loginViewModel else {
             return
         }
         
         loginViewModel.loginCheck = { [weak self] result in
             self?.checkLogin(result: result)
+            
         }
     }
     
-    override func setLayout() {
+    func setLayout() {
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.top.equalTo(150)
@@ -48,8 +50,6 @@ class LoginViewController: BaseViewController {
         }
     }
     
-    // MARK: - Methods
-    
     func setTextFields() {
         loginTextField.borderStyle = .line
         loginTextField.placeholder = "Login"
@@ -57,7 +57,7 @@ class LoginViewController: BaseViewController {
         passwordTextField.borderStyle = .line
         passwordTextField.placeholder = "Password"
         passwordTextField.inputAccessoryView = setToobar()
-        
+        passwordTextField.isSecureTextEntry = true
     }
     
     func setToobar() -> UIToolbar {
@@ -74,8 +74,6 @@ class LoginViewController: BaseViewController {
     }
     
     func setLoginButton() {
-        loginButton.backgroundColor = .systemTeal
-        loginButton.layer.cornerRadius = 10
         loginButton.setTitle("Login", for: .normal)
         loginButton.addTarget(self, action: #selector(tapLoginButton), for: .touchUpInside)
     }
@@ -113,6 +111,4 @@ class LoginViewController: BaseViewController {
             passwordTextField.resignFirstResponder()
         }
     }
-    
 }
-

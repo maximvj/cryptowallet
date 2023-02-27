@@ -1,8 +1,6 @@
 
 import Foundation
 
-
-
 // MARK: - DataClass
 
 struct CoinModelData: Codable {
@@ -12,14 +10,14 @@ struct CoinModelData: Codable {
 struct DataClass: Codable {
     let name: String
     let marketData: MarketData
-    
+    let roiData: [String:Double]?
+
     enum CodingKeys: String, CodingKey {
         case name
+        case roiData = "roi_data"
         case marketData = "market_data"
     }
-    
 }
-
 
 // MARK: - MarketData
 
